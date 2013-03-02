@@ -1,0 +1,126 @@
+!!!
+%html{:lang => "en"}
+%head
+  %meta{:charset => "utf-8"}/
+  %title= "360Homes"
+  %meta{:content => "", :name => "description"}/
+  %meta{:content => "", :name => "author"}/
+  / Le HTML5 shim, for IE6-8 support of HTML elements
+  /[if lt IE 9]
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  / Le styles
+  
+  %link{:href => "//netdna.bootstrapcdn.com/bootswatch/2.3.0/spacelab/bootstrap.min.css", :rel => "stylesheet"}/
+  %link{:href => "//netdna.bootstrapcdn.com/font-awesome/3.0.2/css/font-awesome.css", :rel => "stylesheet"}/
+  :css
+    body {
+      padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+    }
+    #results .row-fluid {
+      margin-top: 1em;
+    }
+    .row-fluid .offset6 {
+      margin-left: 51.846154%;
+    }
+    .left-column.tab-content {
+      box-shadow: 0 0 15px #888;
+    }
+    .accordion-heading {
+      background-color: lightgrey;
+    }
+    #map img {
+      max-width: none;
+    }
+    .details {
+      margin-top: 34px;
+    }
+    #tour {
+      border: 3px solid black;
+    }
+    a {
+      color: #15C;
+    }
+    .offset6.span6 {
+      margin-left: 3em;
+    }
+    
+  %link{:href => "//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.0/css/bootstrap-responsive.min.css", :rel => "stylesheet"}/
+  / Le fav and touch icons
+  %link{:href => "images/favicon.ico", :rel => "shortcut icon"}/
+  %link{:href => "images/apple-touch-icon.png", :rel => "apple-touch-icon"}/
+  %link{:href => "images/apple-touch-icon-72x72.png", :rel => "apple-touch-icon", :sizes => "72x72"}/
+  %link{:href => "images/apple-touch-icon-114x114.png", :rel => "apple-touch-icon", :sizes => "114x114"}/
+%body
+  .navbar.navbar-inverse.navbar-fixed-top
+    .navbar-inner
+      .container-fluid
+        %a.btn.btn-navbar{"data-target" => ".nav-collapse", "data-toggle" => "collapse"}
+          %span.icon-bar
+          %span.icon-bar
+          %span.icon-bar
+        %a.brand{:href => "#"}
+          %strong 360Homes
+        .nav-collapse
+          %ul.nav
+            %li.divider-vertical
+            %li.dropdown
+              %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#contact"}
+                %i.icon-search
+                Search
+                %b.caret
+              %ul.dropdown-menu
+                %li 
+                  %a{:href => "#"} 
+                    %i.icon-home
+                    Dream Home
+                %li 
+                  %a{:href => "#"} 
+                    %i.icon-user
+                    Trusted Agent
+            %li.divider-vertical
+          %a.btn.btn-small.pull-right{:href => "#requestTour"}
+            %i.icon-facetime-video
+            Request Tour
+        / /.nav-collapse
+  .container-fluid
+    =yield
+    
+  / /container
+  /
+    Le javascript
+    \==================================================
+  / Placed at the end of the document so the pages load faster
+  %script{:src => "//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"}
+  %script{:src => "//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.0/js/bootstrap.min.js"}
+  %script{:src => "http://maps.google.com/maps/api/js?sensor=true"}
+  
+  :javascript
+    $(document).ready(function(){
+      var myLatLng = new google.maps.LatLng(18.5204303, 73.8567437);
+      var mapOptions = {
+          center: myLatLng,
+          zoom: 15,
+          mapTypeId: google.maps.MapTypeId.ROADMAP
+        };      
+      map = new google.maps.Map(document.getElementById('map'), mapOptions);
+      marker = new google.maps.Marker({
+            position: myLatLng,
+            map: map,
+            icon: 'http://maps.google.com/mapfiles/ms/icons/blue-dot.png'
+      })
+      //$('#result_div').css("margin-left", $('#map_div').width()+10);
+      $('.link').tooltip();
+    });
+
+    $(window).resize(function () {
+      var h = $(window).height(),
+        offsetTop = 130; // Calculate the top offset
+
+      $('#map').css('height', (h - offsetTop));
+    }).resize();
+
+    $(window).resize(function () {
+      $('#tour').width($('.span8').width() - 10);
+    }).resize();
+
+

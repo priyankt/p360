@@ -1,0 +1,152 @@
+.row-fluid
+    .span6.affix{"data-spy" => "affix"}
+        %ul.nav.nav-pills#searchOptions
+            %li.active
+                %a{"href" => "#map"} Map
+            %li
+                %a{"href" => "#chart"} Chart
+        .left-column.tab-content
+            .tab-pane.active#map
+                .alert.alert-error
+                    %strong Loading Map. Please wait..
+            .tab-pane#chart
+                .alert.alert-error
+                    Something here
+    .offset6
+        .span12
+            %ul.nav.nav-tabs#searchOptions
+                %li
+                    %a{"href" => "#options"}
+                        %strong Search Options
+                %li.active
+                    %a{"href" => "#results"} 
+                        %strong Search Results
+            .tab-content
+                .tab-pane#options
+                    %p This is text here
+                .tab-pane.active#results
+                    %ul.thumbnails
+                        .row-fluid
+                            %li.span6
+                                .thumbnail
+                                    %img{"src" => "http://farm9.staticflickr.com/8392/8519688747_2ece00a465.jpg"}
+                                    .caption
+                                        %strong
+                                            %a{:href => "#"} 2BHK in Vishrantwadi
+                                    %table.table.table-bordered.table-condensed
+                                        %thead
+                                            %tr
+                                                %th 
+                                                    %small Price
+                                                %th 
+                                                    %small Size
+                                                %th 
+                                                    %small Distance
+                                        %tbody
+                                            %tr
+                                                %td 
+                                                    2.0
+                                                    %small Cr
+                                                %td 
+                                                    2,000
+                                                    %small ft
+                                                    %small 
+                                                        %sup 2
+                                                %td
+                                                    %a.link{:href => 'http://maps.google.com/maps?saddr=18.565022,73.877563&daddr=18.547894,73.903484', 'target' => '_blank', 'rel' => 'tooltip', 'data-original-title' => 'Arial distance. Click to view actual distance on google maps', 'data-toggle' =>'tooltip'} 
+                                                        2.5
+                                                        %small Km*
+                                    %a.btn.btn-small.btn-info.btn-block{:href => "/details"}
+                                        %i.icon-facetime-video
+                                        %strong View Tour
+                            %li.span6
+                                .thumbnail
+                                    %img{"src" => "http://farm9.staticflickr.com/8390/8520757204_b981bae205.jpg"}
+                                    .caption
+                                        %strong
+                                            %a{:href => "#"} 2BHK in kalyaninagar
+                                    %table.table.table-bordered.table-condensed
+                                        %thead
+                                            %tr
+                                                %th 
+                                                    %small Size
+                                                %th 
+                                                    %small Price
+                                                %th 
+                                                    %small Distance
+                                        %tbody
+                                            %tr
+                                                %td 
+                                                    1,200 ft
+                                                    %sup 2
+                                                %td 1.5 Cr
+                                                %td 1.5 Km*
+                                    %a.btn.btn-small.btn-info.btn-block{:href => "/details"}
+                                        %i.icon-facetime-video
+                                        %strong View Tour
+                        .row-fluid
+                            %li.span6
+                                .thumbnail
+                                    %img{"src" => "http://farm9.staticflickr.com/8247/8519654021_867a38aaf4.jpg"}
+                                    .caption
+                                        %strong
+                                            %a{:href => "#"} 2BHK in Koregaonpark
+                                    %table.table.table-bordered.table-condensed
+                                        %thead
+                                            %tr
+                                                %th 
+                                                    %small Size
+                                                %th 
+                                                    %small Price
+                                                %th 
+                                                    %small Distance
+                                        %tbody
+                                            %tr
+                                                %td 
+                                                    2,000 ft
+                                                    %sup 2
+                                                %td 3.0 Cr
+                                                %td 0.75 Km*
+                                    %a.btn.btn-small.btn-info.btn-block{:href => "/details"}
+                                        %i.icon-facetime-video
+                                        %strong View Tour
+                            %li.span6
+                                .thumbnail
+                                    %img{"src" => "http://farm9.staticflickr.com/8092/8520772284_714ef01fd4.jpg"}
+                                    .caption
+                                        %strong
+                                            %a{:href => "#"} 2BHK in Wakad
+                                    %table.table.table-bordered.table-condensed
+                                        %thead
+                                            %tr
+                                                %th 
+                                                    %small Size
+                                                %th 
+                                                    %small Price
+                                                %th 
+                                                    %small Distance
+                                        %tbody
+                                            %tr
+                                                %td 
+                                                    1,200 ft
+                                                    %sup 2
+                                                %td 2.5 Cr
+                                                %td 0.5 Km*
+                                    %a.btn.btn-small.btn-info.btn-block{:href => "/details"}
+                                        %i.icon-facetime-video
+                                        %strong View Tour
+        / .media
+        /     %a.pull-left{"href" => "#{}"}
+        /         %img.media-object{"style" => "width: 80px; height:80px;", "src" => "http://www.rentechdesigns.com/images/service_apart.jpg"}
+        / .media-body
+        /     %table.table.table-bordered
+        /         %thead
+        /             %tr
+        /                 %th Type
+        /                 %th Price
+        /                 %th Possession
+        /         %tbody
+        /             %tr
+        /                 %td 2BHK
+        /                 %td 50 Lakhs
+        /                 %td 12th Dec, 2012

@@ -1,0 +1,106 @@
+.page-index.row-fluid
+    .span6.affix{"data-spy" => "affix"}
+        %ul.nav.nav-pills#searchOptions
+            %li.active
+                %a{"href" => "#map"} Map
+            %li
+                %a{"href" => "#chart"} Chart
+        .left-column.tab-content
+            .tab-pane.active#map
+                .alert.alert-error
+                    %strong Loading Map. Please wait..
+            .tab-pane#chart
+                .alert.alert-error
+                    Something here
+    .offset6
+        .span12
+            %ul.nav.nav-tabs#searchOptions
+                %li
+                    %a{"href" => "#options"}
+                        %strong Search Options
+                %li.active
+                    %a{"href" => "#results"} 
+                        %strong Search Results
+            .tab-content
+                .tab-pane#options
+                    %p This is text here
+                .tab-pane.active#results
+                    %ul.thumbnails
+                        - cnt = 0
+                        - @items.each do |apt|
+                            - if cnt%2 == 0
+                                %li.span6{:style => "margin-left: 0;"}
+                                    .thumbnail
+                                        %a{:href => "/details"}
+                                            %img{:src => apt["thumb"]}
+                                        .caption
+                                            %strong
+                                                %a{:href => "/details"}= apt["title"]
+                                        %table.table.table-condensed
+                                            %thead
+                                                %tr
+                                                    %th 
+                                                        %small.muted Price
+                                                    %th 
+                                                        %small.muted Size
+                                                    %th 
+                                                        %small.muted Distance
+                                            %tbody
+                                                %tr
+                                                    %td 
+                                                        = number_to_currency(apt["price"], :unit => "&#8377;", :precision => 1, :format => "%u %n")
+                                                        %small Cr
+                                                    %td 
+                                                        = number_with_delimiter(apt["size"])
+                                                        %small ft
+                                                        %small 
+                                                            %sup 2
+                                                    %td
+                                                        %a.link{:href => 'http://maps.google.com/maps?saddr=18.565022,73.877563&daddr=18.547894,73.903484', 'target' => '_blank', 'rel' => 'tooltip', 'data-original-title' => 'Arial distance. Click to view actual distance on google maps', 'data-toggle' =>'tooltip'} 
+                                                            = apt["distance"]
+                                                            %small Km*
+                                                %tr
+                                                    %td{"colspan" => 3}
+                                                        %small.muted.pull-right 6 days ago
+                                        / %a.btn.btn-small.btn-info.btn-block{:href => "/details"}
+                                        /     %i.icon-facetime-video
+                                        /     %strong View Tour
+                            - else
+                                %li.span6
+                                    .thumbnail
+                                        %a{:href => "/details"}
+                                            %img{:src => apt["thumb"]}
+                                        .caption
+                                            %strong
+                                                %a{:href => "/details"}= apt["title"]
+                                        %table.table.table-condensed
+                                            %thead
+                                                %tr
+                                                    %th 
+                                                        %small.muted Price
+                                                    %th 
+                                                        %small.muted Size
+                                                    %th 
+                                                        %small.muted Distance
+                                            %tbody
+                                                %tr
+                                                    %td 
+                                                        = number_to_currency(apt["price"], :unit => "&#8377;", :precision => 1)
+                                                        %small Cr
+                                                    %td 
+                                                        = number_with_delimiter(apt["size"])
+                                                        %small ft
+                                                        %small 
+                                                            %sup 2
+                                                    %td
+                                                        %a.link{:href => 'http://maps.google.com/maps?saddr=18.565022,73.877563&daddr=18.547894,73.903484', 'target' => '_blank', 'rel' => 'tooltip', 'data-original-title' => 'Arial distance. Click to view actual distance on google maps', 'data-toggle' =>'tooltip'} 
+                                                            = apt["distance"]
+                                                            %small Km*
+                                                %tr
+                                                    %td{"colspan" => 3}
+                                                        %small.muted.pull-right 6 days ago
+
+                                        / %a.btn.btn-small.btn-info.btn-block{:href => "/details"}
+                                        /     %i.icon-facetime-video
+                                        /     %strong View Tour
+                            - cnt += 1

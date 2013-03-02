@@ -1,0 +1,121 @@
+.row-fluid
+    .span8
+        %ul.nav.nav-tabs#details
+            %li.active
+                %a{"href" => "#360view"} 360 View
+            %li
+                %a{"href" => "#map"} Location Map
+        .tab-content
+            .tab-pane.active#360view
+                %iframe{"id" => "tour", "src" => "http://www.pixeet.com/iframe/EA85503A98BD75127185E8072C797AE1", "height" => "500"}
+    .span4.details
+        .accordion#flatDetails
+            .accordion-group
+                .accordion-heading
+                    %a.accordion-toggle{"data-toggle" => "collapse", "data-parent" => "flatDetails", "href" => "#details1"}
+                        %i.icon-caret-down
+                        %strong Specifics
+                .accordion-body.collapse.in#details1
+                    .accordion-inner
+                        .row-fluid
+                            %table.table.table-bordered.table-condensed
+                                %tbody
+                                    %tr
+                                        %td 
+                                            %strong
+                                                %small Type
+                                        %td
+                                            2 
+                                            %small bhk with
+                                            2
+                                            %small balcony
+                                    %tr
+                                        %td 
+                                            %strong 
+                                                %small Area
+                                        %td 
+                                            1, 200
+                                            %small ft
+                                            %sup 2
+                                    %tr
+                                        %td 
+                                            %strong
+                                                %small Price
+                                        %td 
+                                            &#8377; 50
+                                            %small lakhs (Neg)
+                                    %tr
+                                        %td 
+                                            %strong
+                                                %small Possession
+                                        %td 25th Jan, 2012
+                                    %tr
+                                        %td 
+                                            %strong
+                                                %small On Floor
+                                        %td
+                                            3 
+                                            %small of
+                                            10
+                                    %tr
+                                        %td 
+                                            %strong
+                                                %small Age
+                                        %td
+                                            5
+                                            %small years old
+                                    %tr
+                                        %td 
+                                            %strong
+                                                %small Furnishing
+                                        %td
+                                            None
+                                    %tr
+                                        %td 
+                                            %strong
+                                                %small Maintenence
+                                        %td
+                                            &#8377; 1, 200/
+                                            %small month
+                        .row-fluid.text-center
+                            %btn.btn.btn-info
+                                %i.icon-user
+                                %strong Contact Agent
+        .accordion#flatAmenities
+            .accordion-group
+                .accordion-heading
+                    %a.accordion-toggle{"data-toggle" => "collapse", "data-parent" => "flatAmenities", "href" => "#amenities"}
+                        %i.icon-caret-down
+                        %strong Amenities
+                .accordion-body.collapse.in#amenities
+                    .accordion-inner
+                        .row-fluid
+                            .span6
+                                %ul.unstyled
+                                    %li
+                                        %i.icon-ok 
+                                        Swimming Pool
+                                    %li
+                                        %i.icon-ok 
+                                        Community Center
+                                    %li
+                                        %i.icon-remove 
+                                        Reserved Parking
+                                    %li
+                                        %i.icon-remove 
+                                        Power Backup
+                                    %li
+                                        %i.icon-remove 
+                                        Visitor Parking
+                            .span4
+                                %ul.unstyled
+                                    %li
+                                        %i.icon-remove 
+                                        Gym
+                                    %li
+                                        %i.icon-remove 
+                                        Security
+                                    %li
+                                        %i.icon-ok
+                                        Park
+                                    
