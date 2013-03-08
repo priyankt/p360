@@ -1,0 +1,57 @@
+.block
+  .secondary-navigation
+    %ul.wat-cf
+      %li.first.active=link_to pat(:list), url(:properties, :index)
+      %li=link_to pat(:new), url(:properties, :new)
+  .content
+    %h2.title
+      =pat(:all)
+      =mt(:properties)
+    .inner
+      %table.table
+        %tr
+          %th.first=mat(:property, :id)
+          %th=mat(:property, :title)
+          %th=mat(:property, :bedrooms)
+          %th=mat(:property, :bathrooms)
+          %th=mat(:property, :balcony)
+          %th=mat(:property, :price)
+          %th=mat(:property, :size)
+          %th=mat(:property, :lat)
+          %th=mat(:property, :lng)
+          %th=mat(:property, :age)
+          %th=mat(:property, :tour_url)
+          %th=mat(:property, :thumb_url)
+          %th=mat(:property, :facing)
+          %th=mat(:property, :created_at)
+          %th=mat(:property, :updated_at)
+          %th=mat(:property, :agent_id)
+          %th=mat(:property, :propertyType_id)
+          %th.last="&nbsp;"
+        -@properties.each do |property|
+          %tr
+            %td.first=property.id
+            %td=property.title
+            %td=property.bedrooms
+            %td=property.bathrooms
+            %td=property.balcony
+            %td=property.price
+            %td=property.size
+            %td=property.lat
+            %td=property.lng
+            %td=property.age
+            %td=property.tour_url
+            %td=property.thumb_url
+            %td=property.facing
+            %td=property.created_at
+            %td=property.updated_at
+            %td=property.agent_id
+            %td=property.propertyType_id
+            %td.last
+              =button_to pat(:edit), url(:properties, :edit, :id => property.id), :method => :get, :class => :button_to
+              ="|"
+              =button_to pat(:delete), url(:properties, :destroy, :id => property.id), :method => :delete, :class => :button_to, :onsubmit => "return confirm('#{pat(:confirm)}')"
+      .actions-bar.wat-cf
+        .actions="&nbsp;"
+
+-content_for :sidebar, partial("base/sidebar")

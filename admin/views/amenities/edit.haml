@@ -1,0 +1,15 @@
+.block
+  .secondary-navigation
+    %ul.wat-cf
+      %li.first=link_to pat(:list), url(:amenities, :index)
+      %li=link_to pat(:new), url(:amenities, :new)
+      %li.active=link_to pat(:edit), url(:amenities, :edit, :id => @amenity.id)
+  .content
+    %h2.title
+      =pat(:edit)
+      =mt(:amenity)
+    .inner
+      -form_for :amenity, url(:amenities, :update, :id => @amenity.id), :method => :put, :class => :form do |f|
+        =partial "amenities/form", :locals => { :f => f }
+
+-content_for :sidebar, partial("base/sidebar")

@@ -1,0 +1,15 @@
+.block
+  .secondary-navigation
+    %ul.wat-cf
+      %li.first=link_to pat(:list), url(:property_types, :index)
+      %li=link_to pat(:new), url(:property_types, :new)
+      %li.active=link_to pat(:edit), url(:property_types, :edit, :id => @property_type.id)
+  .content
+    %h2.title
+      =pat(:edit)
+      =mt(:property_type)
+    .inner
+      -form_for :property_type, url(:property_types, :update, :id => @property_type.id), :method => :put, :class => :form do |f|
+        =partial "property_types/form", :locals => { :f => f }
+
+-content_for :sidebar, partial("base/sidebar")

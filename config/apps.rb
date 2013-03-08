@@ -32,3 +32,4 @@ end
 
 # Mounts the core application for this project
 Padrino.mount("P360flats").to('/')
+Padrino.mount("Admin").to("/admin")

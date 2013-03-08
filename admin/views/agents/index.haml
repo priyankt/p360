@@ -1,0 +1,37 @@
+.block
+  .secondary-navigation
+    %ul.wat-cf
+      %li.first.active=link_to pat(:list), url(:agents, :index)
+      %li=link_to pat(:new), url(:agents, :new)
+  .content
+    %h2.title
+      =pat(:all)
+      =mt(:agents)
+    .inner
+      %table.table
+        %tr
+          %th.first=mat(:agent, :id)
+          %th=mat(:agent, :agent_name)
+          %th=mat(:agent, :address)
+          %th=mat(:agent, :phone)
+          %th=mat(:agent, :email)
+          %th=mat(:agent, :created_at)
+          %th=mat(:agent, :updated_at)
+          %th.last="&nbsp;"
+        -@agents.each do |agent|
+          %tr
+            %td.first=agent.id
+            %td=agent.agent_name
+            %td=agent.address
+            %td=agent.phone
+            %td=agent.email
+            %td=agent.created_at
+            %td=agent.updated_at
+            %td.last
+              =button_to pat(:edit), url(:agents, :edit, :id => agent.id), :method => :get, :class => :button_to
+              ="|"
+              =button_to pat(:delete), url(:agents, :destroy, :id => agent.id), :method => :delete, :class => :button_to, :onsubmit => "return confirm('#{pat(:confirm)}')"
+      .actions-bar.wat-cf
+        .actions="&nbsp;"
+
+-content_for :sidebar, partial("base/sidebar")

@@ -1,0 +1,31 @@
+.block
+  .secondary-navigation
+    %ul.wat-cf
+      %li.first.active=link_to pat(:list), url(:property_types, :index)
+      %li=link_to pat(:new), url(:property_types, :new)
+  .content
+    %h2.title
+      =pat(:all)
+      =mt(:property_types)
+    .inner
+      %table.table
+        %tr
+          %th.first=mat(:property_type, :id)
+          %th=mat(:property_type, :type_name)
+          %th=mat(:property_type, :created_at)
+          %th=mat(:property_type, :updated_at)
+          %th.last="&nbsp;"
+        -@property_types.each do |property_type|
+          %tr
+            %td.first=property_type.id
+            %td=property_type.type_name
+            %td=property_type.created_at
+            %td=property_type.updated_at
+            %td.last
+              =button_to pat(:edit), url(:property_types, :edit, :id => property_type.id), :method => :get, :class => :button_to
+              ="|"
+              =button_to pat(:delete), url(:property_types, :destroy, :id => property_type.id), :method => :delete, :class => :button_to, :onsubmit => "return confirm('#{pat(:confirm)}')"
+      .actions-bar.wat-cf
+        .actions="&nbsp;"
+
+-content_for :sidebar, partial("base/sidebar")

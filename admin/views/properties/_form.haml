@@ -1,0 +1,88 @@
+.group
+  =f.label :title
+  =f.error_message_on :title
+  =f.text_field :title, :class => :text_field
+  %span.description Ex: a simple text
+
+.group
+  =f.label :bedrooms
+  =f.error_message_on :bedrooms
+  =f.text_field :bedrooms, :class => :text_field
+  %span.description Ex: a simple text
+
+.group
+  =f.label :bathrooms
+  =f.error_message_on :bathrooms
+  =f.text_field :bathrooms, :class => :text_field
+  %span.description Ex: a simple text
+
+.group
+  =f.label :balcony
+  =f.error_message_on :balcony
+  =f.text_field :balcony, :class => :text_field
+  %span.description Ex: a simple text
+
+.group
+  =f.label :price
+  =f.error_message_on :price
+  =f.text_field :price, :class => :text_field
+  %span.description Ex: a simple text
+
+.group
+  =f.label :size
+  =f.error_message_on :size
+  =f.text_field :size, :class => :text_field
+  %span.description Ex: a simple text
+
+.group
+  =f.label :lat
+  =f.error_message_on :lat
+  =f.text_field :lat, :class => :text_field
+  %span.description Ex: a simple text
+
+.group
+  =f.label :lng
+  =f.error_message_on :lng
+  =f.text_field :lng, :class => :text_field
+  %span.description Ex: a simple text
+
+.group
+  =f.label :age
+  =f.error_message_on :age
+  =f.text_field :age, :class => :text_field
+  %span.description Ex: a simple text
+
+.group
+  =f.label :tour_url
+  =f.error_message_on :tour_url
+  =f.text_field :tour_url, :class => :text_field
+  %span.description Ex: a simple text
+
+.group
+  =f.label :thumb_url
+  =f.error_message_on :thumb_url
+  =f.text_field :thumb_url, :class => :text_field
+  %span.description Ex: a simple text
+
+.group
+  =f.label :facing
+  =f.error_message_on :facing
+  =f.text_field :facing, :class => :text_field
+  %span.description Ex: a simple text
+
+.group
+  =f.label :agent_id
+  =f.error_message_on :agent_id
+  =f.text_field :agent_id, :class => :text_field
+  %span.description Ex: a simple text
+
+.group
+  =f.label :propertyType_id
+  =f.error_message_on :propertyType_id
+  =f.text_field :propertyType_id, :class => :text_field
+  %span.description Ex: a simple text
+
+
+.group.navform.wat-cf
+  =f.submit pat(:save), :class => :button
+  =f.submit pat(:cancel), :onclick => "window.location='#{url(:properties, :index)}';return false", :class => :button

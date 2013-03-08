@@ -1,7 +1,8 @@
 --- 
-:mock: none
-:stylesheet: none
 :renderer: haml
-:script: none
-:test: none
+:admin_renderer: haml
+:stylesheet: none
 :orm: datamapper
+:test: none
+:mock: none
+:script: none

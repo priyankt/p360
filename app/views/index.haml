@@ -2,24 +2,23 @@
     .span6.affix{"data-spy" => "affix"}
         %ul.nav.nav-pills#searchOptions
             %li.active
-                %a{"href" => "#map"} Map
+                %a{"href" => "#map", "data-toggle" => "tab"} Map
             %li
-                %a{"href" => "#chart"} Chart
+                %a{"href" => "#chart_div", "data-toggle" => "tab"} Chart
         .left-column.tab-content
             .tab-pane.active#map
                 .alert.alert-error
                     %strong Loading Map. Please wait..
-            .tab-pane#chart
-                .alert.alert-error
-                    Something here
+            .tab-pane#chart_div
+                %svg
     .offset6
         .span12
             %ul.nav.nav-tabs#searchOptions
                 %li
-                    %a{"href" => "#options"}
+                    %a{:href => "#options", "data-toggle" => "tab"}
                         %strong Search Options
                 %li.active
-                    %a{"href" => "#results"} 
+                    %a{"href" => "#results", "data-toggle" => "tab"} 
                         %strong Search Results
             .tab-content
                 .tab-pane#options
@@ -30,7 +29,7 @@
                         - @items.each do |apt|
                             - if cnt%2 == 0
                                 %li.span6{:style => "margin-left: 0;"}
-                                    .thumbnail
+                                    %div{"class" => "thumbnail", "id" => "property#{cnt}"}
                                         %a{:href => "/details"}
                                             %img{:src => apt["thumb"]}
                                         .caption
@@ -48,10 +47,10 @@
                                             %tbody
                                                 %tr
                                                     %td 
-                                                        = number_to_currency(apt["price"], :unit => "&#8377;", :precision => 1, :format => "%u %n")
+                                                        %strong= number_to_currency(apt["price"], :unit => "&#8377;", :precision => 1, :format => "%u %n")
                                                         %small Cr
                                                     %td 
-                                                        = number_with_delimiter(apt["size"])
+                                                        %strong= number_with_delimiter(apt["size"])
                                                         %small ft
                                                         %small 
                                                             %sup 2
@@ -61,13 +60,14 @@
                                                             %small Km*
                                                 %tr
                                                     %td{"colspan" => 3}
+                                                        %small.muted.pull-left 5 years old
                                                         %small.muted.pull-right 6 days ago
                                         / %a.btn.btn-small.btn-info.btn-block{:href => "/details"}
                                         /     %i.icon-facetime-video
                                         /     %strong View Tour
                             - else
                                 %li.span6
-                                    .thumbnail
+                                    %div{"class" => "thumbnail", "id" => "property#{cnt}"}
                                         %a{:href => "/details"}
                                             %img{:src => apt["thumb"]}
                                         .caption
@@ -85,10 +85,10 @@
                                             %tbody
                                                 %tr
                                                     %td 
-                                                        = number_to_currency(apt["price"], :unit => "&#8377;", :precision => 1)
+                                                        %strong= number_to_currency(apt["price"], :unit => "&#8377;", :precision => 1, :format => "%u %n")
                                                         %small Cr
                                                     %td 
-                                                        = number_with_delimiter(apt["size"])
+                                                        %strong= number_with_delimiter(apt["size"])
                                                         %small ft
                                                         %small 
                                                             %sup 2

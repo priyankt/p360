@@ -1,0 +1,10 @@
+.group
+  =f.label :amenity_name
+  =f.error_message_on :amenity_name
+  =f.text_field :amenity_name, :class => :text_field
+  %span.description Ex: a simple text
+
+
+.group.navform.wat-cf
+  =f.submit pat(:save), :class => :button
+  =f.submit pat(:cancel), :onclick => "window.location='#{url(:amenities, :index)}';return false", :class => :button

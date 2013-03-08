@@ -1,0 +1,28 @@
+.group
+  =f.label :agent_name
+  =f.error_message_on :agent_name
+  =f.text_field :agent_name, :class => :text_field
+  %span.description Ex: a simple text
+
+.group
+  =f.label :address
+  =f.error_message_on :address
+  ~f.text_area :address, :class => :text_area
+  %span.description Ex: a simple text
+
+.group
+  =f.label :phone
+  =f.error_message_on :phone
+  =f.text_field :phone, :class => :text_field
+  %span.description Ex: a simple text
+
+.group
+  =f.label :email
+  =f.error_message_on :email
+  =f.text_field :email, :class => :text_field
+  %span.description Ex: a simple text
+
+
+.group.navform.wat-cf
+  =f.submit pat(:save), :class => :button
+  =f.submit pat(:cancel), :onclick => "window.location='#{url(:agents, :index)}';return false", :class => :button
